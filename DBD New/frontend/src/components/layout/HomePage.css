@@ -67,10 +67,23 @@
   margin-bottom: 15px; /* Spacing before a potential button */
 }
 
-/* .action-card .button-primary { 
+.action-card .button-primary { 
   display: inline-block;
   text-decoration: none;
-} */
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.action-card .button-primary:hover {
+  background-color: #0056b3;
+  color: white; /* Ensure text color remains white on hover */
+}
 
 .dashboard-summary {
   background-color: #ffffff;

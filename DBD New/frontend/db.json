@@ -83,14 +83,11 @@
       "stock": 220
     },
     {
-      "id": "9d8c",
-      "PROD_ID": "asdfafd",
-      "PROD_NAME": "asdfasf",
-      "PROD_DESC": "",
-      "PROD_CATEGORY": "asdfasfd",
-      "PROD_PRICE": 1,
-      "PROD_STOCK_QTY": 1,
-      "VEND_CODE": ""
+      "id": "ITEM006",
+      "name": "asdfasf",
+      "category": "asdfasfd",
+      "price": 1,
+      "stock": 1
     }
   ],
   "journalEntries": [
@@ -117,38 +114,6 @@
           "credit": 150
         }
       ]
-    }
-  ],
-  "customers": [
-    {
-      "id": "CUST001",
-      "CUST_CODE": "C001",
-      "CUST_NAME": "Alpha Services Ltd.",
-      "CUST_CONTACT_PERSON": "John Doe",
-      "CUST_EMAIL": "john.doe@alphaservices.com",
-      "CUST_PHONE": "555-1111",
-      "CUST_ADDRESS": "123 Main St, Anytown, USA",
-      "CUST_STATUS": "Active"
-    },
-    {
-      "id": "CUST002",
-      "CUST_CODE": "C002",
-      "CUST_NAME": "Beta Solutions Inc.",
-      "CUST_CONTACT_PERSON": "Jane Smith",
-      "CUST_EMAIL": "jane.smith@betasolutions.io",
-      "CUST_PHONE": "555-2222",
-      "CUST_ADDRESS": "456 Oak Ave, Sometown, USA",
-      "CUST_STATUS": "Active"
-    },
-    {
-      "id": "CUST003",
-      "CUST_CODE": "C003",
-      "CUST_NAME": "Gamma Retail Co.",
-      "CUST_CONTACT_PERSON": "Robert Brown",
-      "CUST_EMAIL": "r.brown@gammaretail.co",
-      "CUST_PHONE": "555-3333",
-      "CUST_ADDRESS": "789 Pine Ln, Otherville, USA",
-      "CUST_STATUS": "Inactive"
     }
   ],
   "generalLedgerAccounts": [
@@ -334,6 +299,84 @@
     }
   ],
   "customers": [
+    {
+      "id": "cust_alpha_123",
+      "customerCode": "C001",
+      "name": "Alpha Services Ltd.",
+      "contactPerson": "John Doe",
+      "email": "john.doe@alphaservices.com",
+      "phone": "555-1111",
+      "shipToAddress": {
+        "name": "Alpha Services Ltd. Shipping",
+        "street1": "123 Main St, Anytown, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "billToAddress": {
+        "name": "Alpha Services Ltd. Billing",
+        "street1": "123 Main St, Anytown, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      }
+    },
+    {
+      "id": "cust_beta_456",
+      "customerCode": "C002",
+      "name": "Beta Solutions Inc.",
+      "contactPerson": "Jane Smith",
+      "email": "jane.smith@betasolutions.io",
+      "phone": "555-2222",
+      "shipToAddress": {
+        "name": "Beta Solutions Inc. Shipping",
+        "street1": "456 Oak Ave, Sometown, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "billToAddress": {
+        "name": "Beta Solutions Inc. Billing",
+        "street1": "456 Oak Ave, Sometown, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      }
+    },
+    {
+      "id": "cust_gamma_789",
+      "customerCode": "C003",
+      "name": "Gamma Retail Co.",
+      "contactPerson": "Robert Brown",
+      "email": "r.brown@gammaretail.co",
+      "phone": "555-3333",
+      "shipToAddress": {
+        "name": "Gamma Retail Co. Shipping",
+        "street1": "789 Pine Ln, Otherville, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      },
+      "billToAddress": {
+        "name": "Gamma Retail Co. Billing",
+        "street1": "789 Pine Ln, Otherville, USA",
+        "street2": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": ""
+      }
+    },
     {
       "id": "cust_8a7b3f2e-1d0c-4f8e-a9b5-2c1d7f6e0a9b",
       "customerCode": "CUST004",

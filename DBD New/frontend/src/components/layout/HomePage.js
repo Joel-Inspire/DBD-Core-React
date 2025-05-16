@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css'; // We'll create this next
 
 const HomePage = () => {
@@ -17,17 +18,17 @@ const HomePage = () => {
           <div className="action-card">
             <h4>View Invoices</h4>
             <p>Access and manage customer invoices.</p>
-            {/* <Link to="/invoices" className="button-primary">Go to Invoices</Link> */}
+            <Link to="/invoices" className="button-primary">Go to Invoices</Link>
           </div>
           <div className="action-card">
             <h4>Manage Products</h4>
             <p>Update and review product catalog.</p>
-            {/* <Link to="/products" className="button-primary">Go to Products</Link> */}
+            <Link to="/products" className="button-primary">Go to Products</Link>
           </div>
           <div className="action-card">
             <h4>Enter Orders</h4>
             <p>Create new sales or purchase orders.</p>
-            {/* <Link to="/order-entry" className="button-primary">Go to Order Entry</Link> */}
+            <Link to="/sales-orders" className="button-primary">Go to Order Entry</Link>
           </div>
         </div>
       </section>
