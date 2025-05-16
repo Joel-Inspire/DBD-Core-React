@@ -1,0 +1,37 @@
+{
+  "vendors": [
+    {
+      "id": "ACME001-01",
+      "VEND_DIV": "01",
+      "VEND_CODE": "ACME001",
+      "VEND_NAME": "Acme Innovations",
+      "VEND_CITY": "Metropolis",
+      "VEND_PHONE": "555-0101"
+    },
+    {
+      "id": "GLOBEXC-02",
+      "VEND_DIV": "02",
+      "VEND_CODE": "GLOBEXC",
+      "VEND_NAME": "Globex Corporation",
+      "VEND_CITY": "Springfield",
+      "VEND_PHONE": "555-0202"
+    },
+    {
+      "id": "WAYNECO-01",
+      "VEND_DIV": "01",
+      "VEND_CODE": "WAYNECO",
+      "VEND_NAME": "Wayne Enterprises",
+      "VEND_CITY": "Gotham",
+      "VEND_PHONE": "555-0303"
+    },
+    {
+      "id": "STARKIN-03",
+      "VEND_DIV": "03",
+      "VEND_CODE": "STARKIN",
+      "VEND_NAME": "Stark Industries",
+      "VEND_CITY": "New York",
+      "VEND_PHONE": "555-0404"
+    }
+  ],
+  "products": []
+}

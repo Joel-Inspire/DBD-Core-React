@@ -443,7 +443,7 @@ This table appears to handle lot information related to order entry returns.
 
 {{ ... }}
 | `CUST_DIV`             | CHAR      | 2      |     | Customer number                        |
-{{ ... }}
+{{ ... }}Number                             |
 | `PO_DIV`               | CHAR      | 2      |     | P/O number                             |
 {{ ... }}Number                             |
 | `PO_NUM`               | CHAR      | 7      |     |                                        |
@@ -872,7 +872,7 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 | SPEC_AMT_4             | NUMBER    | N/A   | N/A    | 14.3 | Special Amount 4                           |
 | DISC_APPLIES_TO        | NUMBER    | N/A   | N/A    | 14.3 | Discount Applies to                        |
 | DISC_AMT               | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount                            |
-| WORKMAN_COMP_WH        | NUMBER    | N/A   | N/A    | 14.3 | Workman's Comp W/H                         |
+| WORKMAN_COMP_WH        | NUMBER    | N/A   | N/A    | 14.3 | Workman's Comp Ins. W/H                   |
 | NET_INV_AMT            | NUMBER    | N/A   | N/A    | 14.3 | Net Invoice Amount                         |
 | DAYS_TO_EXT_DUE_DATE   | NUMBER    | N/A   | N/A    | 14.3 | Days to Extend Due Date                    |
 | USED_INV_ENTRY         | NUMBER    | N/A   | N/A    | 14.3 | Used during Invoice Entry                  |
@@ -917,61 +917,56 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 *   Primary Key: `SRC_COMP_CODE`, `BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `CHECK_CODE`, `CHECK_NUM`
 
 ### Table: APD_InvoiceEntHdr
-{{ ... after APC_ChkReg fields table ... }}
-**Keys:**
-*   Primary Key: `SRC_COMP_CODE`, `BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `CHECK_CODE`
 
-### Table: APD_InvoiceEntHdr
-
-| Field Name           | Data Type | Start | Length | Dec  | Description                                |
-| :------------------- | :-------- | :---- | :----- | :--- | :----------------------------------------- |
-| FY                   | CHAR      | 1     | 4      |      | Fiscal Year                                |
-| ACCTPD               | CHAR      | 5     | 2      |      | Accounting Period                          |
-| VEND_DIV             | CHAR      | 7     | 2      |      | A/P Vendor Division                        |
-| VEND_CODE            | CHAR      | 9     | 8      |      | Vendor Code                                |
-| INV_NUM              | CHAR      | 17    | 10     |      | Invoice Number                             |
-| INV_DATE             | DATE      | 27    | 6      |      | Invoice Date                               |
-| TERMS_CODE           | CHAR      | 33    | 2      |      | Terms Code                                 |
-| INV_DUE_DATE         | DATE      | 35    | 6      |      | Invoice Due Date                           |
-| DISC_EXPIRE_DATE     | DATE      | 41    | 6      |      | Discount Expires on                        |
-| INV_COMMENT          | CHAR      | 47    | 15     |      | Invoice Comment                            |
-| OUR_REF_NUM          | CHAR      | 62    | 10     |      | Our Reference Number                       |
-| PRNT_CHK_ON_BANK     | CHAR      | 72    | 3      |      | Print Check on Bank Code                   |
-| CATEGORY             | CHAR      | 75    | 9      |      | Category Code                              |
-| PYMNT_SELECTION      | CHAR      | 84    | 2      |      | Payment Selection                          |
-| PYMNT_PRIORITY_CODE  | CHAR      | 86    | 1      |      | Payment Priority Code                      |
-| INV_ON_HOLD          | CHAR      | 87    | 1      |      | Place Invoice on hold?                     |
-| SPECIAL_INV_TYPE     | CHAR      | 88    | 1      |      | Special Invoice Type (Sub, PO)             |
-| INV_TYPE             | CHAR      | 89    | 1      |      | Invoice Type (A=Adj, R=Ret)                |
-| APPLY_TO_INV_NUM     | CHAR      | 90    | 10     |      | Apply to invoice number                    |
-| SPER_CODE            | CHAR      | 100   | 4      |      | Salesperson code (parameterized)           |
-| SOURCE_COMPANY       | CHAR      | 104   | 3      |      | Source company code                        |
-| SRC_LOC_TYPE         | CHAR      | 107   | 1      |      | Source location type (1=RL)                |
-| ALT_CURRENCY         | CHAR      | 108   | 3      |      | Alternate currency code                    |
-| DISC_EXPIRES_2ND     | DATE      | 111   | 6      |      | 2nd discount expires on                    |
-| APD_UNUSED_1         | CHAR      | 117   | 30     |      | Unused                                     |
-| APE_LINK             | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                    |
-| GROSS_INV_AMT        | NUMBER    | N/A   | N/A    | 14.3 | Gross Invoice Amount                       |
-| SPECIAL_AMT_1        | NUMBER    | N/A   | N/A    | 14.3 | Special Amount 1                           |
-| SPECIAL_AMT_2        | NUMBER    | N/A   | N/A    | 14.3 | Special Amount 2                           |
-| SPECIAL_AMT_3        | NUMBER    | N/A   | N/A    | 14.3 | Special Amount 3                           |
-| SPECIAL_AMT_4        | NUMBER    | N/A   | N/A    | 14.3 | Special Amount 4                           |
-| DISC_APPLIES_TO      | NUMBER    | N/A   | N/A    | 14.3 | Discount Applies to                        |
-| DISC_AMT             | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount                            |
-| WORKMAN_COMP_WH      | NUMBER    | N/A   | N/A    | 14.3 | Workman's Comp W/H                         |
-| NET_SALE             | NUMBER    | N/A   | N/A    | 14.3 | Net Invoice Amount                         |
-| DAYS_TO_EXTEND_DUE   | NUMBER    | N/A   | N/A    | 14.3 | Days to extend due date                    |
-| INTERNAL_USE         | NUMBER    | N/A   | N/A    | 14.3 | Internal Use (Used during Invoice Entry)   |
-| ALT_CURR_GROSS_AMT   | NUMBER    | N/A   | N/A    | 14.3 | Gross amount in alternate currency         |
-| ALT_CURR_DISC_AMT    | NUMBER    | N/A   | N/A    | 14.3 | Discount amount in alternate currency      |
-| DISC_AMT_2ND         | NUMBER    | N/A   | N/A    | 14.3 | 2nd Discount Amount                        |
-| APD_UNUSED_2         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_3         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_4         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_5         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_6         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_7         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
-| APD_UNUSED_8         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                     |
+| Field Name           | Data Type | Start | Length | Dec  | Description                           |
+| :------------------- | :-------- | :---- | :----- | :--- | :------------------------------------ |
+| FY                   | CHAR      | 1     | 4      |      | Fiscal year                            |
+| ACCTPD               | CHAR      | 5     | 2      |      | Acctg period                           |
+| VEND_DIV             | CHAR      | 7     | 2      |      | A/P Vendor Division                    |
+| VEND_CODE            | CHAR      | 9     | 8      |      | A/P Vendor Code                        |
+| INV_NUM              | CHAR      | 17    | 10     |      | Invoice number                        |
+| INV_DATE             | DATE      | 27    | 6      |      | Invoice date                           |
+| TERMS_CODE           | CHAR      | 33    | 2      |      | Terms Code                             |
+| INV_DUE_DATE         | DATE      | 35    | 6      |      | Invoice due date                       |
+| DISC_EXPIRE_DATE     | DATE      | 41    | 6      |      | Discount expires                       |
+| INV_COMMENT          | CHAR      | 47    | 15     |      | Invoice comment                        |
+| OUR_REF_NUM          | CHAR      | 62    | 10     |      | Our reference number                   |
+| PRNT_CHK_ON_BANK     | CHAR      | 72    | 3      |      | Print check on bank                    |
+| CATEGORY             | CHAR      | 75    | 9      |      | Category code                          |
+| PYMNT_SELECTION      | CHAR      | 84    | 2      |      | Pmt selection                          |
+| PYMNT_PRIORITY_CODE  | CHAR      | 86    | 1      |      | Pmt priority                           |
+| INV_ON_HOLD          | CHAR      | 87    | 1      |      | Place invoice on hold?                  |
+| SPECIAL_INV_TYPE     | CHAR      | 88    | 1      |      | Special invoice type (Sub, PO)         |
+| INV_TYPE             | CHAR      | 89    | 1      |      | Invoice type (A=Adj, R=Ret)            |
+| APPLY_TO_INV_NUM     | CHAR      | 90    | 10     |      | Applies to invoice number              |
+| SPER_CODE            | CHAR      | 100   | 4      |      | Salesperson code (parameterized)       |
+| SOURCE_COMPANY       | CHAR      | 104   | 3      |      | Source company code                    |
+| SRC_LOC_TYPE         | CHAR      | 107   | 1      |      | Source location type (1=RL)            |
+| ALT_CURRENCY         | CHAR      | 108   | 3      |      | Alternate currency code                |
+| DISC_EXPIRES_2ND     | DATE      | 111   | 6      |      | 2nd discount expires on                |
+| APD_UNUSED_1         | CHAR      | 117   | 30     |      | Unused                                  |
+| APE_LINK             | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                |
+| GROSS_INV_AMT        | NUMBER    | N/A   | N/A    | 14.3 | Gross invoice amount                   |
+| SPECIAL_AMT_1        | NUMBER    | N/A   | N/A    | 14.3 | Special amount 1                        |
+| SPECIAL_AMT_2        | NUMBER    | N/A   | N/A    | 14.3 | Special amount 2                        |
+| SPECIAL_AMT_3        | NUMBER    | N/A   | N/A    | 14.3 | Special amount 3                        |
+| SPECIAL_AMT_4        | NUMBER    | N/A   | N/A    | 14.3 | Special amount 4                        |
+| DISC_APPLIES_TO      | NUMBER    | N/A   | N/A    | 14.3 | Discount applies to                     |
+| DISC_AMT             | NUMBER    | N/A   | N/A    | 14.3 | Discount amount                         |
+| WORKMAN_COMP_WH      | NUMBER    | N/A   | N/A    | 14.3 | Workman's comp W/H                      |
+| NET_SALE             | NUMBER    | N/A   | N/A    | 14.3 | Net invoice amount                      |
+| DAYS_TO_EXTEND_DUE   | NUMBER    | N/A   | N/A    | 14.3 | Days to extend due date                 |
+| INTERNAL_USE         | NUMBER    | N/A   | N/A    | 14.3 | Internal use (used during invoice entry) |
+| ALT_CURR_GROSS_AMT   | NUMBER    | N/A   | N/A    | 14.3 | Gross amount in alternate currency      |
+| ALT_CURR_DISC_AMT    | NUMBER    | N/A   | N/A    | 14.3 | Discount amount in alternate currency   |
+| DISC_AMT_2ND         | NUMBER    | N/A   | N/A    | 14.3 | 2nd discount amount                     |
+| APD_UNUSED_2         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_3         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_4         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_5         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_6         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_7         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| APD_UNUSED_8         | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
 
 **Keys:**
 *   Primary Key: `FY`, `ACCTPD`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`
@@ -1003,14 +998,80 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 **Keys:**
 *   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
 
+### Table: API_OpenInvoice
+
+| Field Name             | Data Type | Start | Length | Dec  | Description                             |
+| :--------------------- | :-------- | :---- | :----- | :--- | :-------------------------------------- |
+| VEND_DIV               | CHAR      | 1     | 2      |      | Vendor Division                         |
+| VEND_CODE              | CHAR      | 3     | 8      |      | Vendor Code                             |
+| INV_NUM                | CHAR      | 11    | 10     |      | Invoice                                 |
+| INV_DATE               | DATE      | 21    | 6      |      | Invoice Date                            |
+| TERMS_CODE             | CHAR      | 27    | 2      |      | Terms Code                              |
+| INV_DUE_DATE           | DATE      | 29    | 6      |      | Invoice Due Date                        |
+| DISC_EXPIRE_DATE       | DATE      | 35    | 6      |      | Discount Expires                        |
+| INV_COMMENT            | CHAR      | 41    | 15     |      | Invoice Comment                         |
+| OUR_REF_NUM            | CHAR      | 56    | 10     |      | Our Reference No                        |
+| PRINT_ON_BANK_CODE     | CHAR      | 66    | 3      |      | Print on Bank                           |
+| CATEGORY               | CHAR      | 69    | 9      |      | Category Code                           |
+| PYMNT_SELECTION        | CHAR      | 78    | 2      |      | Pmt Selection                           |
+| PYMNT_PRIORITY_CODE    | CHAR      | 80    | 1      |      | Pmt Priority                            |
+| INV_ON_HOLD            | CHAR      | 81    | 1      |      | Place Invoice on hold?                   |
+| INV_SPECIAL_CODE       | CHAR      | 82    | 1      |      | Inv Special Code                        |
+| INV_TYPE               | CHAR      | 83    | 1      |      | Invoice Type                            |
+| APPLY_TO_INV_NUM       | CHAR      | 84    | 10     |      | Applies to Invoice number               |
+| ORIG_UPDT_IN_FYAP      | CHAR      | 94    | 6      |      | Originally updated in FY/Period         |
+| GREATEST_FY            | CHAR      | 100   | 4      |      | Highest Period/Year updated to          |
+| GREATEST_ACCTPD        | CHAR      | 104   | 2      |      | (Highest Accounting Period updated to)   |
+| AUDIT_NUM              | CHAR      | 106   | 6      |      | Audit control number                    |
+| API_UNUSED_1           | CHAR      | 112   | 2      |      | Unknown                                |
+| SPER_CODE              | CHAR      | 114   | 4      |      | Salesperson code                        |
+| ORIG_COMP_CODE         | CHAR      | 118   | 3      |      | Original company code                   |
+| SRC_LOC_TYPE           | CHAR      | 121   | 1      |      | Source location type (1=RL)             |
+| ALT_CURR_CODE          | CHAR      | 122   | 3      |      | Alternate Currency Code                 |
+| DISC_EXPIRES_2ND       | DATE      | 125   | 6      |      | 2nd discount expires on                 |
+| API_UNUSED_8           | CHAR      | 131   | 30     |      | Unused                                  |
+| TRANS_DETAIL_LINK      | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                 |
+| GL_DETAIL_LINK         | NUMBER    | N/A   | N/A    | 14.3 | Index to G/L Distribution               |
+| TOTAL_BOOKED_TO_AP     | NUMBER    | N/A   | N/A    | 14.3 | Total Booked to A/P                     |
+| SPECIAL_INV_AMT_1      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 1                |
+| SPECIAL_INV_AMT_2      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 2                |
+| SPECIAL_INV_AMT_3      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 3                |
+| SPECIAL_INV_AMT_4      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 4                |
+| ORIG_DISC_AVAIL        | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available             |
+| WC_INS_WH              | NUMBER    | N/A   | N/A    | 14.3 | Worker's Comp Ins. W/H                  |
+| EXTEND_DUE_DT          | NUMBER    | N/A   | N/A    | 14.3 | Extend Due Date                         |
+| ORIG_INV_AMT           | NUMBER    | N/A   | N/A    | 14.3 | Original Invoice Amount                 |
+| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discounts Taken to Date                 |
+| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to Date                |
+| BAL_DUE_ON_INVOICE     | NUMBER    | N/A   | N/A    | 14.3 | Balance due on this Invoice             |
+| POSTED_TO_DT_SPEC_1    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 1       |
+| POSTED_TO_DT_SPEC_2    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 2       |
+| POSTED_TO_DT_SPEC_3    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 3       |
+| POSTED_TO_DT_SPEC_4    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 4       |
+| GROSS_AMT_ALT_CURR     | NUMBER    | N/A   | N/A    | 14.3 | Gross Amount in Alternate Currency      |
+| DISC_AMT_ALT_CURR      | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount in Alternate Currency   |
+| ALT_GROSS_AMT_ALT_C    | NUMBER    | N/A   | N/A    | 14.3 | Alternate Gross Amount paid to date     |
+| ALT_DISC_AMT_PTD       | NUMBER    | N/A   | N/A    | 14.3 | Alternate Discount Amount paid to date  |
+| DISC_AVAIL_2ND         | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available 2           |
+| API_UNUSED_2           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_3           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_4           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_5           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_6           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_7           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+
+**Keys:**
+*   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+*   Alternate Key 1: `PRINT_ON_BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+
 ### Table: APH_ChkPrn
 
 | Field Name           | Data Type | Start | Length | Dec  | Description                               |
 | :------------------- | :-------- | :---- | :----- | :--- | :---------------------------------------- |
 | SRC_COMP_CODE        | CHAR      | 1     | 3      |      | Source company code                       |
 | BANK_CODE            | CHAR      | 4     | 3      |      | Bank account code                         |
-| VEND_DIV             | CHAR      | 7     | 2      |      | Vendor code                              |
-| VEND_CODE            | CHAR      | 9     | 8      |      |                                          |
+| VEND_DIV             | CHAR      | 7     | 2      |      | Vendor Division                           |
+| VEND_CODE            | CHAR      | 9     | 8      |      | Vendor Code                               |
 | SPECIAL_CHECK_CODE   | CHAR      | 17    | 1      |      | Special check code                        |
 | INV_NUM              | CHAR      | 18    | 10     |      | Invoice number                            |
 | CHECK_NUM            | CHAR      | 28    | 6      |      | Check number                              |
@@ -1025,71 +1086,6 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 
 **Keys:**
 *   Primary Key: `SRC_COMP_CODE`, `BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `SPECIAL_CHECK_CODE`, `INV_NUM`
-
-### Table: API_OpenInvoice
-
-| Field Name             | Data Type | Start | Length | Dec  | Description                             |
-| :--------------------- | :-------- | :---- | :----- | :--- | :-------------------------------------- |
-| VEND_DIV               | CHAR      | 1     | 2      |      | Vendor Division                         |
-| VEND_CODE              | CHAR      | 3     | 8      |      | Vendor Code                             |
-| INV_NUM                | CHAR      | 11    | 10     |      | Invoice                                 |
-| INV_DATE               | DATE      | 21    | 6      |      | Invoice Date                             |
-| TERMS_CODE             | CHAR      | 27    | 2      |      | Terms Code                              |
-| INV_DUE_DATE           | DATE      | 29    | 6      |      | Invoice Due Date                         |
-| DISC_EXPIRE_DATE       | DATE      | 35    | 6      |      | Discount Expires                         |
-| INV_COMMENT            | CHAR      | 41    | 15     |      | Invoice Comment                          |
-| OUR_REF_NUM            | CHAR      | 56    | 10     |      | Our Reference No                         |
-| PRINT_ON_BANK_CODE     | CHAR      | 66    | 3      |      | Print on Bank                            |
-| CATEGORY               | CHAR      | 69    | 9      |      | Category Code                            |
-| PYMNT_SELECTION        | CHAR      | 78    | 2      |      | Pmt Selection                            |
-| PYMNT_PRIORITY_CODE    | CHAR      | 80    | 1      |      | Pmt Priority                             |
-| INV_ON_HOLD            | CHAR      | 81    | 1      |      | Place Invoice on hold?                    |
-| INV_SPECIAL_CODE       | CHAR      | 82    | 1      |      | Inv Special Code                         |
-| INV_TYPE               | CHAR      | 83    | 1      |      | Invoice Type                             |
-| APPLY_TO_INV_NUM       | CHAR      | 84    | 10     |      | Applies to Invoice number                |
-| ORIG_UPDT_IN_FYAP      | CHAR      | 94    | 6      |      | Originally updated in FY/Period          |
-| GREATEST_FY            | CHAR      | 100   | 4      |      | Highest Period/Year updated to           |
-| GREATEST_ACCTPD        | CHAR      | 104   | 2      |      | (Highest Accounting Period updated to)    |
-| AUDIT_NUM              | CHAR      | 106   | 6      |      | Audit control number                     |
-| API_UNUSED_1           | CHAR      | 112   | 2      |      | Unknown                                  |
-| SPER_CODE              | CHAR      | 114   | 4      |      | Salesperson code                         |
-| ORIG_COMP_CODE         | CHAR      | 118   | 3      |      | Original company code                    |
-| SRC_LOC_TYPE           | CHAR      | 121   | 1      |      | Source location type (1=RL)              |
-| ALT_CURR_CODE          | CHAR      | 122   | 3      |      | Alternate Currency Code                  |
-| DISC_EXPIRES_2ND       | DATE      | 125   | 6      |      | 2nd discount expires on                  |
-| API_UNUSED_2           | CHAR      | 131   | 30     |      | Unused                                   |
-| TRANS_DETAIL_LINK      | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                  |
-| GL_DETAIL_LINK         | NUMBER    | N/A   | N/A    | 14.3 | Index to G/L Distribution                |
-| TOTAL_BOOKED_TO_AP     | NUMBER    | N/A   | N/A    | 14.3 | Total Booked to A/P                      |
-| SPECIAL_INV_AMT_1      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 1                 |
-| SPECIAL_INV_AMT_2      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 2                 |
-| SPECIAL_INV_AMT_3      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 3                 |
-| SPECIAL_INV_AMT_4      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 4                 |
-| ORIG_DISC_AVAIL        | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available              |
-| WC_INS_WH              | NUMBER    | N/A   | N/A    | 14.3 | Worker's Comp Ins. W/H                   |
-| EXTEND_DUE_DT          | NUMBER    | N/A   | N/A    | 14.3 | Extend Due Date                          |
-| ORIG_INV_AMT           | NUMBER    | N/A   | N/A    | 14.3 | Original Invoice Amount                  |
-| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discount taken to date                   |
-| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to date                 |
-| BAL_DUE_ON_INVOICE     | NUMBER    | N/A   | N/A    | 14.3 | Balance due on this Invoice              |
-| POSTED_TO_DT_SPEC_1    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 1        |
-| POSTED_TO_DT_SPEC_2    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 2        |
-| POSTED_TO_DT_SPEC_3    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 3        |
-| POSTED_TO_DT_SPEC_4    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 4        |
-| GROSS_AMT_ALT_CURR     | NUMBER    | N/A   | N/A    | 14.3 | Gross Amount in Alternate Currency       |
-| DISC_AMT_ALT_CURR      | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount in Alternate Currency    |
-| ALT_GROSS_AMT_PTD      | NUMBER    | N/A   | N/A    | 14.3 | Alternate Gross Amount paid to date      |
-| ALT_DISC_AMT_PTD       | NUMBER    | N/A   | N/A    | 14.3 | Alternate Discount Amount paid to date   |
-| DISC_AVAIL_2ND         | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available 2            |
-| API_UNUSED_3           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                   |
-| API_UNUSED_4           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                   |
-| API_UNUSED_5           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                   |
-| API_UNUSED_6           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                   |
-| API_UNUSED_7           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                   |
-
-**Keys:**
-*   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
-*   Alternate Key 1: `PRINT_ON_BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`
 
 ### Table: APJ_InvoiceTrans
 
@@ -1235,8 +1231,8 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 | WC_INS_WH              | NUMBER    | N/A   | N/A    | 14.3 | Worker's Comp Ins. W/H               |
 | EXTEND_DUE_DT          | NUMBER    | N/A   | N/A    | 14.3 | Extend Due Date                      |
 | ORIG_INV_AMT           | NUMBER    | N/A   | N/A    | 14.3 | Original Invoice Amount              |
-| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discount taken to date               |
-| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to date             |
+| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discounts Taken to Date              |
+| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to Date             |
 | BAL_DUE_ON_INVOICE     | NUMBER    | N/A   | N/A    | 14.3 | Balance due on this Invoice          |
 | POSTED_TO_DT_SPEC_1    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 1    |
 | POSTED_TO_DT_SPEC_2    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 2    |
@@ -1255,3 +1251,136 @@ Foreign Key 2: (GL_ACCT_DIV, GL_ACCT_NUMBER) references GL1_AccountMaster (GL_AC
 
 **Keys:**
 *   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+*   Alternate Key 1: `PRINT_ON_BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+
+### Table: API_OpenInvoice
+
+| Field Name             | Data Type | Start | Length | Dec  | Description                             |
+| :--------------------- | :-------- | :---- | :----- | :--- | :-------------------------------------- |
+| VEND_DIV               | CHAR      | 1     | 2      |      | Vendor Division                         |
+| VEND_CODE              | CHAR      | 3     | 8      |      | Vendor Code                             |
+| INV_NUM                | CHAR      | 11    | 10     |      | Invoice                                 |
+| INV_DATE               | DATE      | 21    | 6      |      | Invoice Date                            |
+| TERMS_CODE             | CHAR      | 27    | 2      |      | Terms Code                              |
+| INV_DUE_DATE           | DATE      | 29    | 6      |      | Invoice Due Date                        |
+| DISC_EXPIRE_DATE       | DATE      | 35    | 6      |      | Discount Expires                        |
+| INV_COMMENT            | CHAR      | 41    | 15     |      | Invoice Comment                         |
+| OUR_REF_NUM            | CHAR      | 56    | 10     |      | Our Reference No                        |
+| PRINT_ON_BANK_CODE     | CHAR      | 66    | 3      |      | Print on Bank                           |
+| CATEGORY               | CHAR      | 69    | 9      |      | Category Code                           |
+| PYMNT_SELECTION        | CHAR      | 78    | 2      |      | Pmt Selection                           |
+| PYMNT_PRIORITY_CODE    | CHAR      | 80    | 1      |      | Pmt Priority                            |
+| INV_ON_HOLD            | CHAR      | 81    | 1      |      | Place Invoice on hold?                   |
+| INV_SPECIAL_CODE       | CHAR      | 82    | 1      |      | Inv Special Code                        |
+| INV_TYPE               | CHAR      | 83    | 1      |      | Invoice Type                            |
+| APPLY_TO_INV_NUM       | CHAR      | 84    | 10     |      | Applies to Invoice number               |
+| ORIG_UPDT_IN_FYAP      | CHAR      | 94    | 6      |      | Originally updated in FY/Period         |
+| GREATEST_FY            | CHAR      | 100   | 4      |      | Highest Period/Year updated to          |
+| GREATEST_ACCTPD        | CHAR      | 104   | 2      |      | (Highest Accounting Period updated to)   |
+| AUDIT_NUM              | CHAR      | 106   | 6      |      | Audit control number                    |
+| API_UNUSED_1           | CHAR      | 112   | 2      |      | Unknown                                |
+| SPER_CODE              | CHAR      | 114   | 4      |      | Salesperson code                        |
+| ORIG_COMP_CODE         | CHAR      | 118   | 3      |      | Original company code                   |
+| SRC_LOC_TYPE           | CHAR      | 121   | 1      |      | Source location type (1=RL)             |
+| ALT_CURR_CODE          | CHAR      | 122   | 3      |      | Alternate Currency Code                 |
+| DISC_EXPIRES_2ND       | DATE      | 125   | 6      |      | 2nd discount expires on                 |
+| API_UNUSED_8           | CHAR      | 131   | 30     |      | Unused                                  |
+| TRANS_DETAIL_LINK      | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                 |
+| GL_DETAIL_LINK         | NUMBER    | N/A   | N/A    | 14.3 | Index to G/L Distribution               |
+| TOTAL_BOOKED_TO_AP     | NUMBER    | N/A   | N/A    | 14.3 | Total Booked to A/P                     |
+| SPECIAL_INV_AMT_1      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 1                |
+| SPECIAL_INV_AMT_2      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 2                |
+| SPECIAL_INV_AMT_3      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 3                |
+| SPECIAL_INV_AMT_4      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 4                |
+| ORIG_DISC_AVAIL        | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available             |
+| WC_INS_WH              | NUMBER    | N/A   | N/A    | 14.3 | Worker's Comp Ins. W/H                  |
+| EXTEND_DUE_DT          | NUMBER    | N/A   | N/A    | 14.3 | Extend Due Date                         |
+| ORIG_INV_AMT           | NUMBER    | N/A   | N/A    | 14.3 | Original Invoice Amount                 |
+| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discounts Taken to Date                 |
+| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to Date                |
+| BAL_DUE_ON_INVOICE     | NUMBER    | N/A   | N/A    | 14.3 | Balance due on this Invoice             |
+| POSTED_TO_DT_SPEC_1    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 1       |
+| POSTED_TO_DT_SPEC_2    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 2       |
+| POSTED_TO_DT_SPEC_3    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 3       |
+| POSTED_TO_DT_SPEC_4    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 4       |
+| GROSS_AMT_ALT_CURR     | NUMBER    | N/A   | N/A    | 14.3 | Gross Amount in Alternate Currency      |
+| DISC_AMT_ALT_CURR      | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount in Alternate Currency   |
+| ALT_GROSS_AMT_ALT_C    | NUMBER    | N/A   | N/A    | 14.3 | Alternate Gross Amount paid to date     |
+| ALT_DISC_AMT_PTD       | NUMBER    | N/A   | N/A    | 14.3 | Alternate Discount Amount paid to date  |
+| DISC_AVAIL_2ND         | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available 2           |
+| API_UNUSED_2           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_3           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_4           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_5           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_6           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_7           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+
+**Keys:**
+*   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+*   Alternate Key 1: `PRINT_ON_BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+
+### Table: API_OpenInvoice
+
+| Field Name             | Data Type | Start | Length | Dec  | Description                             |
+| :--------------------- | :-------- | :---- | :----- | :--- | :-------------------------------------- |
+| VEND_DIV               | CHAR      | 1     | 2      |      | Vendor Division                         |
+| VEND_CODE              | CHAR      | 3     | 8      |      | Vendor Code                             |
+| INV_NUM                | CHAR      | 11    | 10     |      | Invoice                                 |
+| INV_DATE               | DATE      | 21    | 6      |      | Invoice Date                            |
+| TERMS_CODE             | CHAR      | 27    | 2      |      | Terms Code                              |
+| INV_DUE_DATE           | DATE      | 29    | 6      |      | Invoice Due Date                        |
+| DISC_EXPIRE_DATE       | DATE      | 35    | 6      |      | Discount Expires                        |
+| INV_COMMENT            | CHAR      | 41    | 15     |      | Invoice Comment                         |
+| OUR_REF_NUM            | CHAR      | 56    | 10     |      | Our Reference No                        |
+| PRINT_ON_BANK_CODE     | CHAR      | 66    | 3      |      | Print on Bank                           |
+| CATEGORY               | CHAR      | 69    | 9      |      | Category Code                           |
+| PYMNT_SELECTION        | CHAR      | 78    | 2      |      | Pmt Selection                           |
+| PYMNT_PRIORITY_CODE    | CHAR      | 80    | 1      |      | Pmt Priority                            |
+| INV_ON_HOLD            | CHAR      | 81    | 1      |      | Place Invoice on hold?                   |
+| INV_SPECIAL_CODE       | CHAR      | 82    | 1      |      | Inv Special Code                        |
+| INV_TYPE               | CHAR      | 83    | 1      |      | Invoice Type                            |
+| APPLY_TO_INV_NUM       | CHAR      | 84    | 10     |      | Applies to Invoice number               |
+| ORIG_UPDT_IN_FYAP      | CHAR      | 94    | 6      |      | Originally updated in FY/Period         |
+| GREATEST_FY            | CHAR      | 100   | 4      |      | Highest Period/Year updated to          |
+| GREATEST_ACCTPD        | CHAR      | 104   | 2      |      | (Highest Accounting Period updated to)   |
+| AUDIT_NUM              | CHAR      | 106   | 6      |      | Audit control number                    |
+| API_UNUSED_1           | CHAR      | 112   | 2      |      | Unknown                                |
+| SPER_CODE              | CHAR      | 114   | 4      |      | Salesperson code                        |
+| ORIG_COMP_CODE         | CHAR      | 118   | 3      |      | Original company code                   |
+| SRC_LOC_TYPE           | CHAR      | 121   | 1      |      | Source location type (1=RL)             |
+| ALT_CURR_CODE          | CHAR      | 122   | 3      |      | Alternate Currency Code                 |
+| DISC_EXPIRES_2ND       | DATE      | 125   | 6      |      | 2nd discount expires on                 |
+| API_UNUSED_8           | CHAR      | 131   | 30     |      | Unused                                  |
+| TRANS_DETAIL_LINK      | NUMBER    | N/A   | N/A    | 14.3 | Index to transaction #1                 |
+| GL_DETAIL_LINK         | NUMBER    | N/A   | N/A    | 14.3 | Index to G/L Distribution               |
+| TOTAL_BOOKED_TO_AP     | NUMBER    | N/A   | N/A    | 14.3 | Total Booked to A/P                     |
+| SPECIAL_INV_AMT_1      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 1                |
+| SPECIAL_INV_AMT_2      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 2                |
+| SPECIAL_INV_AMT_3      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 3                |
+| SPECIAL_INV_AMT_4      | NUMBER    | N/A   | N/A    | 14.3 | Special Invoice Amount 4                |
+| ORIG_DISC_AVAIL        | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available             |
+| WC_INS_WH              | NUMBER    | N/A   | N/A    | 14.3 | Worker's Comp Ins. W/H                  |
+| EXTEND_DUE_DT          | NUMBER    | N/A   | N/A    | 14.3 | Extend Due Date                         |
+| ORIG_INV_AMT           | NUMBER    | N/A   | N/A    | 14.3 | Original Invoice Amount                 |
+| DISC_TAKEN_TO_DT       | NUMBER    | N/A   | N/A    | 14.3 | Discounts Taken to Date                 |
+| PYMNTS_APPLIED_TO_DT   | NUMBER    | N/A   | N/A    | 14.3 | Payments Applied to Date                |
+| BAL_DUE_ON_INVOICE     | NUMBER    | N/A   | N/A    | 14.3 | Balance due on this Invoice             |
+| POSTED_TO_DT_SPEC_1    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 1       |
+| POSTED_TO_DT_SPEC_2    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 2       |
+| POSTED_TO_DT_SPEC_3    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 3       |
+| POSTED_TO_DT_SPEC_4    | NUMBER    | N/A   | N/A    | 14.3 | Posted to date - Special Amount 4       |
+| GROSS_AMT_ALT_CURR     | NUMBER    | N/A   | N/A    | 14.3 | Gross Amount in Alternate Currency      |
+| DISC_AMT_ALT_CURR      | NUMBER    | N/A   | N/A    | 14.3 | Discount Amount in Alternate Currency   |
+| ALT_GROSS_AMT_ALT_C    | NUMBER    | N/A   | N/A    | 14.3 | Alternate Gross Amount paid to date     |
+| ALT_DISC_AMT_PTD       | NUMBER    | N/A   | N/A    | 14.3 | Alternate Discount Amount paid to date  |
+| DISC_AVAIL_2ND         | NUMBER    | N/A   | N/A    | 14.3 | Original Discount Available 2           |
+| API_UNUSED_2           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_3           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_4           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_5           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_6           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+| API_UNUSED_7           | NUMBER    | N/A   | N/A    | 14.3 | Unused                                  |
+
+**Keys:**
+*   Primary Key: `VEND_DIV`, `VEND_CODE`, `INV_NUM`
+*   Alternate Key 1: `PRINT_ON_BANK_CODE`, `VEND_DIV`, `VEND_CODE`, `INV_NUM`

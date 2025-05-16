@@ -1,0 +1,296 @@
+.vendor-list-container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #eef;
+}
+
+.vendor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.vendor-table th,
+.vendor-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.vendor-table th {
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection on click */
+}
+
+.vendor-table th:hover {
+  background-color: #f0f0f0;
+}
+
+.vendor-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.vendor-table tbody tr:hover {
+  background-color: #eef;
+}
+
+/* Styles for Add Vendor Form */
+.add-vendor-form {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.add-vendor-form h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: calc(100% - 22px); /* Adjust for padding and border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-vendor-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-vendor-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Action Buttons in Table */
+.action-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #da190b;
+}
+
+.edit-button {
+  background-color: #2196F3; /* Blue */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #0b7dda;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red for cancel, consistent with delete perhaps */
+  color: white;
+  margin-left: 10px; /* Add some space next to the submit button */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancel-button:hover {
+  background-color: #da190b;
+}
+
+/* Make sure form buttons are aligned if they wrap */
+.add-vendor-form button {
+  margin-top: 5px; /* Add a little space if buttons wrap to next line */
+}
+
+/* Filter input styles */
+.filter-container {
+  margin-bottom: 15px;
+}
+
+.filter-input {
+  padding: 10px;
+  width: calc(50% - 22px); /* Or a fixed width, e.g., 300px */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Centered Messages for Loading/Error */
+.centered-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust as needed */
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.inline-error-message {
+  color: red;
+  background-color: #ffebee;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e57373;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.inline-loading-message {
+  color: #333;
+  background-color: #e0e0e0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Optional: Loading overlay for subsequent actions */
+/*
+.loading-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+  font-size: 1.5em;
+}
+*/
+
+.vendor-list-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vendor-list-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.centered-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: #D8000C; /* Error red */
+  background-color: #FFD2D2; /* Light red background */
+  border: 1px solid #D8000C;
+  border-radius: 4px;
+}
+
+.empty-state-message {
+  color: #555;
+  font-style: italic;
+}
+
+.add-vendor-button {
+  background-color: #28a745; /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+  display: block; /* Or inline-block if preferred */
+}
+
+.add-vendor-button:hover {
+  background-color: #218838; /* Darker green */
+}
+
+.vendor-items-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vendor-item {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.vendor-item:hover {
+  border-color: #ddd;
+}
+
+.vendor-actions button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.edit-button-vendor {
+  background-color: #ffc107; /* Amber/Yellow */
+  color: #333;
+  border-color: #dda700;
+}
+
+.edit-button-vendor:hover {
+  background-color: #e0a800;
+}
+
+.delete-button-vendor {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border-color: #b02a37;
+}
+
+.delete-button-vendor:hover {
+  background-color: #c82333;
+}

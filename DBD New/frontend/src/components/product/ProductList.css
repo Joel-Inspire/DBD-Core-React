@@ -1,0 +1,221 @@
+/* Styles for ProductList component */
+.product-list-container {
+  padding: 20px;
+}
+
+/* Centered message styling (for loading/error/empty states) */
+.centered-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px; /* Or adjust as needed */
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.error-message {
+  color: #D8000C; /* Dark red */
+  background-color: #FFD2D2; /* Light red */
+  border: 1px solid #D8000C;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.empty-state-message {
+  color: #555;
+  font-style: italic;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.product-items-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.product-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-item:hover {
+  background-color: #f1f1f1;
+}
+
+.product-item span {
+  flex-grow: 1; /* Allow product name span to take available space */
+}
+
+.product-actions button {
+  margin-left: 8px; /* Space between buttons if multiple */
+  padding: 5px 10px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #ffc107; /* Amber/Yellow */
+  color: #333;
+  border: 1px solid #dda700;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: 1px solid #b02a37;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.delete-button:disabled,
+.edit-button:disabled {
+  background-color: #ccc;
+  border-color: #bbb;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Global error message styling (e.g., for delete errors not tied to a form) */
+.global-error {
+  color: #721c24; /* Dark red */
+  background-color: #f8d7da; /* Light pink */
+  border: 1px solid #f5c6cb; /* Pinkish border */
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Add Product Button */
+.add-product-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0 20px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.add-product-button:hover {
+  background-color: #45a049;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Max width for the modal */
+  max-height: 90vh; /* Max height */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content form div {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important for width calculation */
+  font-size: 0.95em;
+}
+
+.modal-content textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+
+.form-actions button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.form-actions button[type="button"] {
+  background-color: #6c757d; /* Gray */
+  color: white;
+}
+
+.form-actions button[type="button"]:hover {
+  background-color: #545b62;
+}
+
+.form-error {
+  color: #D8000C; 
+  background-color: #FFD2D2;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  text-align: center;
+}
