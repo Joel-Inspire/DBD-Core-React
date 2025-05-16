@@ -336,7 +336,7 @@
   "customers": [
     {
       "id": "cust_8a7b3f2e-1d0c-4f8e-a9b5-2c1d7f6e0a9b",
-      "customerCode": "CUST001",
+      "customerCode": "CUST004",
       "name": "Innovatech Solutions Ltd.",
       "contactPerson": "Alice Wonderland",
       "email": "alice@innovatech.com",
@@ -362,7 +362,7 @@
     },
     {
       "id": "cust_3c5d9e1f-7b2a-4c8d-b0e4-9f1a6c5d8e7b",
-      "customerCode": "CUST002",
+      "customerCode": "CUST005",
       "name": "Greenleaf Organics Co.",
       "contactPerson": "Bob Gardener",
       "email": "bob@greenleaf.org",

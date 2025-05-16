@@ -18,6 +18,20 @@
 
 /* Styles for primary button are assumed to be global or in App.css */
 
+.add-invoice-button {
+  /* Styles for the add button if any specific are needed beyond .button-primary */
+  margin-right: auto; /* Pushes search input to the right if toolbar is flex */
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+  width: 300px; /* Adjust as needed */
+  margin-left: 15px; /* Spacing from the add button or left edge */
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -99,6 +113,75 @@
   border-left-color: #007bff;
   animation: spin 1s ease infinite;
   margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding: 10px 0;
+  border-top: 1px solid #eee; /* Optional separator */
+}
+
+.pagination-controls button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  color: #337ab7; /* Link-like color */
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+}
+
+.pagination-controls button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
+
+.pagination-controls span {
+  margin: 0 15px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Empty state and loading refinement */
+.empty-state,
+.loading-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+}
+
+.empty-state-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.loading-container .spinner {
+  /* Assuming spinner class is defined globally or added here */
+  /* Example basic spinner: */
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px auto;
 }
 
 @keyframes spin {

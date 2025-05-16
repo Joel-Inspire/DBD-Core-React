@@ -1,0 +1,53 @@
+/* Sidebar.css */
+.sidebar {
+  width: 250px; /* Adjust width as needed */
+  background-color: #2c3e50; /* Dark sidebar background */
+  color: #ecf0f1; /* Light text color */
+  height: 100vh; /* Full viewport height */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Optional shadow for depth */
+  overflow-y: auto; /* Scroll if content exceeds height */
+}
+
+.sidebar-header {
+  padding: 0 20px 20px 20px;
+  text-align: center;
+  border-bottom: 1px solid #34495e; /* Separator line */
+  margin-bottom: 20px;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ecf0f1;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li a, /* For Link */
+.sidebar ul li .active-link /* For NavLink active state */ {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #bdc3c7; /* Slightly muted link color */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-size: 1em;
+}
+
+.sidebar ul li a:hover {
+  background-color: #34495e; /* Hover background color */
+  color: #ffffff; /* Brighter text on hover */
+}
+
+.sidebar ul li .active-link {
+  background-color: #1abc9c; /* Active link background color (e.g., teal) */
+  color: #ffffff; /* Active link text color */
+  font-weight: 600;
+}

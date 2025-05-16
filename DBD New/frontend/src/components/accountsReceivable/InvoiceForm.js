@@ -5,7 +5,7 @@ import './InvoiceForm.css'; // We'll create this next
 const InvoiceForm = ({ onSave, onCancel, initialInvoice }) => {
   const [invoice, setInvoice] = useState(
     initialInvoice || {
-      invoiceNumber: '',
+      invoiceNumber: '', // Will be generated for new invoices
       customerCode: '',
       orderId: '', // Optional, can be linked later or if generated from an order
       invoiceDate: new Date().toISOString().slice(0, 10), // Default to today
@@ -50,7 +50,6 @@ const InvoiceForm = ({ onSave, onCancel, initialInvoice }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!invoice.invoiceNumber.trim()) newErrors.invoiceNumber = 'Invoice Number is required.';
     if (!invoice.customerCode.trim()) newErrors.customerCode = 'Customer Code is required.';
     if (!invoice.invoiceDate) newErrors.invoiceDate = 'Invoice Date is required.';
     if (!invoice.dueDate) newErrors.dueDate = 'Due Date is required.';
@@ -80,11 +79,12 @@ const InvoiceForm = ({ onSave, onCancel, initialInvoice }) => {
           </div>
           <div className="modal-body">
             <div className="form-grid">
-              <div className="form-group">
-                <label htmlFor="invoiceNumber">Invoice Number <span className="required">*</span></label>
-                <input type="text" id="invoiceNumber" name="invoiceNumber" value={invoice.invoiceNumber} onChange={handleChange} />
-                {errors.invoiceNumber && <p className="error-text">{errors.invoiceNumber}</p>}
-              </div>
+              {initialInvoice && initialInvoice.invoiceNumber && (
+                <div className="form-group">
+                  <label htmlFor="invoiceNumberDisplay">Invoice Number</label>
+                  <input type="text" id="invoiceNumberDisplay" name="invoiceNumberDisplay" value={initialInvoice.invoiceNumber} readOnly disabled />
+                </div>
+              )}
               <div className="form-group">
                 <label htmlFor="customerCode">Customer Code <span className="required">*</span></label>
                 <input type="text" id="customerCode" name="customerCode" value={invoice.customerCode} onChange={handleChange} />

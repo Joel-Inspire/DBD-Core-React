@@ -1,0 +1,75 @@
+/* RecordPaymentModal.css */
+
+/* Using .modal-backdrop and .modal-content from a global modal style or InvoiceDetailsModal.css */
+
+.record-payment-modal {
+  width: 60%;
+  max-width: 550px; /* Optimal width for payment details */
+}
+
+.record-payment-modal .modal-header h2 {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+}
+
+.record-payment-modal .modal-body p {
+  margin: 5px 0 10px;
+  font-size: 0.95em;
+}
+
+.record-payment-modal .modal-body hr {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.record-payment-modal .form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.record-payment-modal .form-group input,
+.record-payment-modal .form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px; /* Spacing between form groups */
+}
+
+.record-payment-modal .form-group textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.record-payment-modal .form-group .error-text {
+  color: #d9534f;
+  font-size: 0.85em;
+  margin-top: -10px; /* Adjust to sit nicely below input */
+  margin-bottom: 10px;
+}
+
+.record-payment-modal .required {
+  color: #d9534f;
+  margin-left: 2px;
+}
+
+.balance-due-highlight {
+  font-weight: bold;
+  color: #c0392b; /* A distinct color for balance due */
+}
+
+.record-payment-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 15px;
+}
+
+/* Ensure global button styles are applied or define them here */

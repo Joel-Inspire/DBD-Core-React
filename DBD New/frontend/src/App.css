@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  /* text-align: center; */ /* Remove if not desired for the whole app */
+  display: flex; /* Helps in managing sidebar and content, though sidebar is fixed */
 }
 
 .App-logo {
@@ -37,39 +38,146 @@
   }
 }
 
-/* Basic Navigation Styles */
-.app-nav {
-  background-color: #282c34;
-  padding: 10px 0;
+.app-content {
+  padding: 20px;
+  margin-left: 250px; /* Width of the sidebar */
+  width: calc(100% - 250px); /* Make content take remaining width */
+  box-sizing: border-box; /* Ensure padding doesn't add to width */
+  /* Add other styles as needed, e.g., flex-grow: 1 if .App is display: flex */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Light background for the content area */
+  color: #333;
+}
+
+.button-primary {
+  background-color: #007bff; /* Example primary color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.app-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.actions-cell button {
+  margin-right: 5px;
+  padding: 5px 8px;
+  font-size: 0.9em;
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.1em; /* Adjust icon size */
+  color: #555;
+}
+
+.button-icon:hover {
+  color: #007bff;
+}
+
+.edit-button:hover {
+  color: #28a745; /* Green for edit */
+}
+
+.delete-button:hover {
+  color: #dc3545; /* Red for delete */
+}
+
+.view-button:hover {
+  color: #17a2b8; /* Info blue for view */
+}
+
+.payment-button:hover, .record-payment-button:hover {
+  color: #ffc107; /* Warning yellow for payment */
+}
+
+.loading-container, .error-container, .no-data-message {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
-.app-nav ul li {
-  margin: 0 15px;
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #007bff;
+  animation: spin 1s ease infinite;
+  margin-bottom: 10px;
 }
 
-.app-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  padding: 8px 12px;
-  border-radius: 4px;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.app-nav ul li a:hover,
-.app-nav ul li a.active {
-  background-color: #61dafb;
-  color: #282c34;
+.error-container {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
-.app-content {
-  padding: 0 20px;
+.no-data-message {
+  color: #6c757d;
+  /* background-color: #f8f9fa; */
 }
