@@ -1,0 +1,424 @@
+.journal-entry-container {
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journal-entry-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.journal-entry-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.journal-entry-table th,
+.journal-entry-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.journal-entry-table th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+.journal-entry-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.journal-entry-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.journal-entry-table button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.journal-entry-table button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Add more styles for buttons (edit, delete, add new) as needed */
+
+/* Modal Styles (similar to GeneralLedgerList.css) */
+.modal {
+  position: fixed;
+  z-index: 1000; /* High z-index to be on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* Dim background */
+  display: flex; /* Used to center the modal content */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* Handles centering for older browsers, good fallback */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative; /* For close button positioning */
+  width: 60%; /* Default width */
+  max-width: 800px; /* Max width */
+  max-height: 90vh; /* Max height to allow scrolling within modal */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+.modal-content.large {
+    width: 80%;
+    max-width: 1000px;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: calc(100% - 22px); /* Full width minus padding and border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important for width calculation */
+}
+
+/* Table for entry lines */
+.lines-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.lines-table th,
+.lines-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.lines-table th {
+    background-color: #f2f2f2;
+}
+
+.lines-table input[type="text"],
+.lines-table input[type="number"],
+.lines-table select {
+    width: calc(100% - 12px); /* Adjust for smaller padding */
+    padding: 6px;
+    font-size: 0.9em;
+}
+
+/* General Button Styling for Icon Alignment */
+.add-button,
+.edit-button,
+.delete-button,
+.save-button,
+.cancel-button,
+.add-line-button,
+.remove-line-button,
+.post-button,
+.unpost-button,
+.clone-button,
+.pagination-controls button {
+    display: inline-flex; /* Use inline-flex to keep them from taking full width */
+    align-items: center;
+    justify-content: center; /* Center content if button has fixed width or only icon */
+    gap: 0.5em; /* Space between icon and text */
+}
+
+.edit-button {
+    padding: 5px 10px;
+    background-color: #ffc107; /* Yellow for edit */
+    color: #212529; /* Dark text for yellow bg */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px; /* Space if other buttons are added */
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #dc3545; /* Red for delete */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.post-button {
+    padding: 5px 10px;
+    background-color: #17a2b8; /* Teal/Info color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px; /* Space from other buttons */
+}
+
+.post-button:hover {
+    background-color: #138496; /* Darker teal */
+}
+
+.unpost-button {
+    padding: 5px 10px;
+    background-color: #ffc107; /* Warning yellow/amber */
+    color: #212529; /* Dark color for better contrast on yellow */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.unpost-button:hover {
+    background-color: #e0a800; /* Darker yellow */
+}
+
+.clone-button {
+    padding: 5px 10px;
+    background-color: #5bc0de; /* Info blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.clone-button:hover {
+    background-color: #31b0d5; /* Darker info blue */
+}
+
+.post-button:disabled,
+.unpost-button:disabled,
+.clone-button:disabled,
+.edit-button:disabled,
+.delete-button:disabled,
+.save-button:disabled,
+.cancel-button:disabled,
+.add-line-button:disabled,
+.remove-line-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.add-line-button,
+.remove-line-button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.add-line-button {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    margin-bottom: 15px; /* Space before form actions */
+}
+
+.remove-line-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+}
+
+.remove-line-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+}
+
+.cancel-button {
+  background-color: #6c757d; /* Gray */
+  color: white;
+  border: none;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: space-between; /* Pushes button to the left, filters to the right */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controls-container .add-button {
+    padding: 10px 15px; /* Slightly larger */
+    background-color: #28a745; /* More vibrant green */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 1em; /* Ensure it's prominent */
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.controls-container .add-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Align items vertically */
+}
+
+.filter-input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.filter-input {
+    min-width: 200px; /* Give description filter some space */
+}
+
+.journal-entry-table th.sortable-header {
+    cursor: pointer;
+}
+
+.journal-entry-table th.sortable-header:hover {
+    background-color: #e9ecef; /* Lighter shade on hover */
+}
+
+.journal-entry-table th.active-sort {
+    background-color: #ddeeff; /* Light blue for active sort */
+    font-weight: bold; /* Make text bolder */
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination-controls button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pagination-controls button:not(:disabled):hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.pagination-controls span {
+    font-size: 0.9em;
+    color: #333;
+    padding: 0 10px; /* Add some spacing around the page number text */
+}
+
+.pagination-controls span.current-page-info {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.entry-totals {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.entry-totals p {
+    margin: 5px 0;
+    font-weight: bold;
+}

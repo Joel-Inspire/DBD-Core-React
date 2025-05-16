@@ -1,37 +1,424 @@
 {
   "vendors": [
     {
-      "id": "ACME001-01",
-      "VEND_DIV": "01",
-      "VEND_CODE": "ACME001",
-      "VEND_NAME": "Acme Innovations",
-      "VEND_CITY": "Metropolis",
-      "VEND_PHONE": "555-0101"
+      "id": "VEND001",
+      "VEND_NAME": "ACME Corp",
+      "VEND_ADDR_1": "123 Main St",
+      "VEND_ADDR_2": "Suite 100",
+      "VEND_CITY": "Anytown",
+      "VEND_STATE": "CA",
+      "VEND_ZIP": "90210",
+      "VEND_COUNTRY": "USA",
+      "VEND_PHONE": "555-1234"
     },
     {
-      "id": "GLOBEXC-02",
-      "VEND_DIV": "02",
-      "VEND_CODE": "GLOBEXC",
-      "VEND_NAME": "Globex Corporation",
-      "VEND_CITY": "Springfield",
-      "VEND_PHONE": "555-0202"
+      "id": "VEND002",
+      "VEND_NAME": "Beta Solutions",
+      "VEND_ADDR_1": "456 Oak Ave",
+      "VEND_ADDR_2": "",
+      "VEND_CITY": "Otherville",
+      "VEND_STATE": "NY",
+      "VEND_ZIP": "10001",
+      "VEND_COUNTRY": "USA",
+      "VEND_PHONE": "555-5678"
     },
     {
-      "id": "WAYNECO-01",
-      "VEND_DIV": "01",
-      "VEND_CODE": "WAYNECO",
-      "VEND_NAME": "Wayne Enterprises",
-      "VEND_CITY": "Gotham",
-      "VEND_PHONE": "555-0303"
+      "VEND_CONTACT": "Charlie Brown",
+      "VEND_COUNTRY": "USA",
+      "VEND_FAX": "555-0303",
+      "VEND_MISC_REF": "Ref003",
+      "VEND_NAME": "Gamma Inc.",
+      "VEND_PHONE": "555-0303",
+      "VEND_STATE": "TX",
+      "VEND_STATUS": "A",
+      "VEND_ZIP": "75001",
+      "id": "VEND003"
     },
     {
-      "id": "STARKIN-03",
-      "VEND_DIV": "03",
-      "VEND_CODE": "STARKIN",
-      "VEND_NAME": "Stark Industries",
-      "VEND_CITY": "New York",
+      "id": "VEND004",
+      "VEND_NAME": "Delta Supplies",
+      "VEND_ADDR_1": "101 Pine Rd",
+      "VEND_ADDR_2": "",
+      "VEND_CITY": "Testburg",
+      "VEND_STATE": "FL",
+      "VEND_ZIP": "33000",
+      "VEND_COUNTRY": "USA",
       "VEND_PHONE": "555-0404"
     }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "ITEM001",
+      "name": "Standard Widget",
+      "category": "Widgets",
+      "price": 25.5,
+      "stock": 150
+    },
+    {
+      "id": "ITEM002",
+      "name": "Premium Gizmo",
+      "category": "Gizmos",
+      "price": 75,
+      "stock": 75
+    },
+    {
+      "id": "ITEM003",
+      "name": "Basic Gadget",
+      "category": "Gadgets",
+      "price": 5.75,
+      "stock": 300
+    },
+    {
+      "id": "ITEM004",
+      "name": "Advanced Doodad",
+      "category": "Doodads",
+      "price": 120.99,
+      "stock": 40
+    },
+    {
+      "id": "ITEM005",
+      "name": "Simple Thingamajig",
+      "category": "Thingamajigs",
+      "price": 12.25,
+      "stock": 220
+    },
+    {
+      "id": "9d8c",
+      "PROD_ID": "asdfafd",
+      "PROD_NAME": "asdfasf",
+      "PROD_DESC": "",
+      "PROD_CATEGORY": "asdfasfd",
+      "PROD_PRICE": 1,
+      "PROD_STOCK_QTY": 1,
+      "VEND_CODE": ""
+    }
+  ],
+  "journalEntries": [
+    {
+      "id": "JE2024001",
+      "entryDate": "2024-05-16",
+      "description": "To record May office supplies expense",
+      "status": "Draft",
+      "totalDebits": 150,
+      "totalCredits": 150,
+      "lines": [
+        {
+          "lineNumber": 1,
+          "glAccountNumber": "6000-000",
+          "lineDescription": "Printer paper and pens",
+          "debit": 150,
+          "credit": 0
+        },
+        {
+          "lineNumber": 2,
+          "glAccountNumber": "1020-000",
+          "lineDescription": "Payment from checking",
+          "debit": 0,
+          "credit": 150
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": "CUST001",
+      "CUST_CODE": "C001",
+      "CUST_NAME": "Alpha Services Ltd.",
+      "CUST_CONTACT_PERSON": "John Doe",
+      "CUST_EMAIL": "john.doe@alphaservices.com",
+      "CUST_PHONE": "555-1111",
+      "CUST_ADDRESS": "123 Main St, Anytown, USA",
+      "CUST_STATUS": "Active"
+    },
+    {
+      "id": "CUST002",
+      "CUST_CODE": "C002",
+      "CUST_NAME": "Beta Solutions Inc.",
+      "CUST_CONTACT_PERSON": "Jane Smith",
+      "CUST_EMAIL": "jane.smith@betasolutions.io",
+      "CUST_PHONE": "555-2222",
+      "CUST_ADDRESS": "456 Oak Ave, Sometown, USA",
+      "CUST_STATUS": "Active"
+    },
+    {
+      "id": "CUST003",
+      "CUST_CODE": "C003",
+      "CUST_NAME": "Gamma Retail Co.",
+      "CUST_CONTACT_PERSON": "Robert Brown",
+      "CUST_EMAIL": "r.brown@gammaretail.co",
+      "CUST_PHONE": "555-3333",
+      "CUST_ADDRESS": "789 Pine Ln, Otherville, USA",
+      "CUST_STATUS": "Inactive"
+    }
+  ],
+  "generalLedgerAccounts": [
+    {
+      "id": "gl001",
+      "accountNumber": "10100-000-00",
+      "description": "Cash - Operating Account",
+      "recordType": "S",
+      "rollupCode": "N",
+      "periodValidation": "Y",
+      "normalBalance": "D",
+      "accountCategory": "AS",
+      "accountStatus": "A",
+      "reportGroup": "CURRENTASSET",
+      "historyFlag": "Y",
+      "consolidationFlag": "N",
+      "intercompanyFlag": "N",
+      "allocationFlag": "N",
+      "fasbGroup": "CASH",
+      "unitsRequiredFlag": "N",
+      "lastActivityDate": "051525",
+      "changedByOperator": "SYS",
+      "lastChangeDate": "010124"
+    },
+    {
+      "id": "gl002",
+      "accountNumber": "20100-000-00",
+      "description": "Accounts Payable - Trade",
+      "recordType": "S",
+      "rollupCode": "N",
+      "periodValidation": "Y",
+      "normalBalance": "C",
+      "accountCategory": "LI",
+      "accountStatus": "A",
+      "reportGroup": "CURRENTLIAB",
+      "historyFlag": "Y",
+      "consolidationFlag": "N",
+      "intercompanyFlag": "N",
+      "allocationFlag": "N",
+      "fasbGroup": "PAYABLES",
+      "unitsRequiredFlag": "N",
+      "lastActivityDate": "051625",
+      "changedByOperator": "SYS",
+      "lastChangeDate": "010124"
+    },
+    {
+      "id": "gl003",
+      "accountNumber": "40100-000-00",
+      "description": "Sales Revenue - Products",
+      "recordType": "S",
+      "rollupCode": "N",
+      "periodValidation": "Y",
+      "normalBalance": "C",
+      "accountCategory": "IN",
+      "accountStatus": "A",
+      "reportGroup": "REVENUE",
+      "historyFlag": "Y",
+      "consolidationFlag": "N",
+      "intercompanyFlag": "N",
+      "allocationFlag": "N",
+      "fasbGroup": "SALES",
+      "unitsRequiredFlag": "N",
+      "lastActivityDate": "051025",
+      "changedByOperator": "JMD",
+      "lastChangeDate": "031524"
+    }
+  ],
+  "salesOrders": [
+    {
+      "id": "so_6707a100-1106-4f0e-8748-390281910951",
+      "orderNumber": "ORD001",
+      "customerCode": "CUST100",
+      "orderDate": "2024-05-15T10:30:00Z",
+      "status": "Pending",
+      "salespersonCode": "SP001",
+      "companyDivisionPrefix": "DIV01",
+      "shipToAddress": {
+        "name": "John Doe",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "billToAddress": {
+        "name": "John Doe",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "notes": "Customer requests morning delivery.",
+      "items": [
+        {
+          "id": "sol_c930a628-7800-4161-9840-14af080e4618",
+          "lineNumber": "001",
+          "itemNumber": "ITEM001",
+          "itemDescription": "Standard Widget",
+          "quantityOrdered": 10,
+          "unitPrice": 25.5,
+          "lineTotal": 255,
+          "warehouseCode": "WH1",
+          "sellingUOM": "EACH",
+          "costingUOM": "EACH",
+          "vendorCode": "VEND001",
+          "lineType": "S",
+          "taxProductType": "STD",
+          "itemWeight": 0.5,
+          "poLinkTypeSeq": "A"
+        },
+        {
+          "id": "sol_2c363518-617f-4a9c-b5b8-3e6b35d46249",
+          "lineNumber": "002",
+          "itemNumber": "ITEM002",
+          "itemDescription": "Premium Gizmo",
+          "quantityOrdered": 5,
+          "unitPrice": 75,
+          "lineTotal": 375,
+          "warehouseCode": "WH1",
+          "sellingUOM": "EACH",
+          "costingUOM": "EACH",
+          "vendorCode": "VEND002",
+          "lineType": "S",
+          "taxProductType": "LUX",
+          "itemWeight": 1.2,
+          "poLinkTypeSeq": ""
+        }
+      ],
+      "subTotal": 630,
+      "taxAmount": 50.4,
+      "shippingAmount": 25,
+      "totalAmount": 705.4
+    },
+    {
+      "id": "so_def0c479-3485-41ea-9c19-31515555a79e",
+      "orderNumber": "ORD002",
+      "customerCode": "CUST200",
+      "orderDate": "2024-05-16T11:45:00Z",
+      "status": "Confirmed",
+      "salespersonCode": "SP002",
+      "companyDivisionPrefix": "DIV02",
+      "shipToAddress": {
+        "name": "Jane Smith",
+        "street": "456 Oak Ave",
+        "city": "Otherville",
+        "state": "NY",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "billToAddress": {
+        "name": "Jane Smith",
+        "street": "456 Oak Ave",
+        "city": "Otherville",
+        "state": "NY",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "notes": "",
+      "items": [
+        {
+          "id": "sol_534f3584-90c8-43a0-a9c8-21566709a883",
+          "lineNumber": "001",
+          "itemNumber": "ITEM003",
+          "itemDescription": "Basic Gadget",
+          "quantityOrdered": 100,
+          "unitPrice": 5.75,
+          "lineTotal": 575,
+          "warehouseCode": "WH2",
+          "sellingUOM": "BOX",
+          "costingUOM": "BOX",
+          "vendorCode": "VEND003",
+          "lineType": "S",
+          "taxProductType": "STD",
+          "itemWeight": 0.1,
+          "poLinkTypeSeq": ""
+        }
+      ],
+      "subTotal": 575,
+      "taxAmount": 46,
+      "shippingAmount": 15,
+      "totalAmount": 636
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust_8a7b3f2e-1d0c-4f8e-a9b5-2c1d7f6e0a9b",
+      "customerCode": "CUST001",
+      "name": "Innovatech Solutions Ltd.",
+      "contactPerson": "Alice Wonderland",
+      "email": "alice@innovatech.com",
+      "phone": "555-0101",
+      "shipToAddress": {
+        "name": "Innovatech Receiving",
+        "street1": "123 Future Drive",
+        "street2": "Suite 100",
+        "city": "Tech City",
+        "state": "CA",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "billToAddress": {
+        "name": "Innovatech Accounts Payable",
+        "street1": "456 Finance Avenue",
+        "street2": "",
+        "city": "Tech City",
+        "state": "CA",
+        "zip": "90211",
+        "country": "USA"
+      }
+    },
+    {
+      "id": "cust_3c5d9e1f-7b2a-4c8d-b0e4-9f1a6c5d8e7b",
+      "customerCode": "CUST002",
+      "name": "Greenleaf Organics Co.",
+      "contactPerson": "Bob Gardener",
+      "email": "bob@greenleaf.org",
+      "phone": "555-0202",
+      "shipToAddress": {
+        "name": "Greenleaf Warehouse",
+        "street1": "789 Nature's Way",
+        "street2": "Unit B",
+        "city": "Evergreen Town",
+        "state": "WA",
+        "zip": "98001",
+        "country": "USA"
+      },
+      "billToAddress": {
+        "name": "Greenleaf Organics Billing Dept.",
+        "street1": "789 Nature's Way",
+        "street2": "Admin Office",
+        "city": "Evergreen Town",
+        "state": "WA",
+        "zip": "98001",
+        "country": "USA"
+      }
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv_7f9e1c3b-8a2d-4f0e-b9c1-5d7f3e2a1b0c",
+      "invoiceNumber": "INV2024-001",
+      "orderId": "so_6707a100-1106-4f0e-8748-390281910951",
+      "customerCode": "CUST001",
+      "invoiceDate": "2024-07-20",
+      "dueDate": "2024-08-19",
+      "subTotal": 630.00,
+      "taxAmount": 50.40,
+      "shippingAmount": 25.00,
+      "totalAmount": 705.40,
+      "amountPaid": 0.00,
+      "balanceDue": 705.40,
+      "status": "Open",
+      "notes": "Invoice for initial order."
+    },
+    {
+      "id": "inv_9c2d8e5f-3b1a-4d7c-a0b3-8e4f1c7d5b2e",
+      "invoiceNumber": "INV2024-002",
+      "orderId": "so_def0c479-3485-41ea-9c19-31515555a79e",
+      "customerCode": "CUST002",
+      "invoiceDate": "2024-07-22",
+      "dueDate": "2024-08-21",
+      "subTotal": 575.00,
+      "taxAmount": 46.00,
+      "shippingAmount": 15.00,
+      "totalAmount": 636.00,
+      "amountPaid": 636.00,
+      "balanceDue": 0.00,
+      "status": "Paid",
+      "notes": "Payment received in full."
+    }
+  ]
 }

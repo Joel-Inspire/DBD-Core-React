@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* Basic Navigation Styles */
+.app-nav {
+  background-color: #282c34;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.app-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.app-nav ul li {
+  margin: 0 15px;
+}
+
+.app-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.app-nav ul li a:hover,
+.app-nav ul li a.active {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+.app-content {
+  padding: 0 20px;
+}

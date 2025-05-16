@@ -1,52 +1,62 @@
 // This service will handle API calls for products.
 // For now, it's minimal to support testing ProductList.
 
+import axios from 'axios'; // Assuming axios is preferred for consistency with OrderEntryService
+
 const API_BASE_URL = 'http://localhost:3001'; // Assuming json-server for products too
 
-// Helper function to handle API responses (can be shared or refactored later)
-const handleResponse = async (response) => {
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({ message: response.statusText }));
-    throw new Error(errorData.message || `API request failed with status ${response.status}`);
-  }
-  if (response.status === 204) {
-    return null; 
-  }
-  return response.json();
-};
-
 export const getProducts = async () => {
-  // This will eventually fetch from `${API_BASE_URL}/products`
-  // For TDD with ProductList, this function will be mocked by tests initially.
-  // When ProductList calls it, the mock in ProductList.test.js will respond.
-  console.warn('productService.getProducts called - should be mocked in tests or implemented for actual use');
-  return Promise.resolve([]); // Placeholder for actual implementation
+  try {
+    const response = await axios.get(`${API_BASE_URL}/products`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
 };
 
-// We will add addProduct, updateProduct, deleteProduct later following TDD
+export const getProductById = async (productId) => {
+  try {
+    // Assuming 'id' is the field for item number in db.json products
+    const response = await axios.get(`${API_BASE_URL}/products/${productId}`);
+    return response.data;
+  } catch (error) {
+    if (error.response && error.response.status === 404) {
+      // Product not found, return null or throw a specific error
+      return null; 
+    }
+    console.error(`Error fetching product with id ${productId}:`, error);
+    throw error;
+  }
+};
 
 export const addProduct = async (productData) => {
-  // This will eventually send a POST request to `${API_BASE_URL}/products`
-  // For TDD, this will be mocked in tests.
-  console.warn('productService.addProduct called - should be mocked in tests or implemented for actual use');
-  // Simulate API call, assuming json-server will assign an id if not provided.
-  // For a real backend, the response would be the newly created product, often with its DB-assigned ID.
-  return Promise.resolve({ ...productData, id: `mock-${Date.now()}` }); // Mock response
+  try {
+    const response = await axios.post(`${API_BASE_URL}/products`, productData);
+    return response.data;
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error;
+  }
 };
 
 export const updateProduct = async (productId, productData) => {
-  // This will eventually send a PUT request to `${API_BASE_URL}/products/${productId}`
-  // For TDD, this will be mocked in tests.
-  console.warn(`productService.updateProduct called for ${productId} - should be mocked or implemented`);
-  // Simulate API call, returning the updated product data.
-  // A real backend would persist the changes and return the updated record.
-  return Promise.resolve({ id: productId, ...productData }); // Mock response
+  try {
+    const response = await axios.put(`${API_BASE_URL}/products/${productId}`, productData);
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating product with id ${productId}:`, error);
+    throw error;
+  }
 };
 
 export const deleteProduct = async (productId) => {
-  // This will eventually send a DELETE request to `${API_BASE_URL}/products/${productId}`
-  // For TDD, this will be mocked in tests.
-  console.warn(`productService.deleteProduct called for ${productId} - should be mocked or implemented`);
-  // Simulate API call. A successful DELETE request usually returns a 200 OK or 204 No Content.
-  return Promise.resolve({}); // Mock response for successful deletion
+  try {
+    await axios.delete(`${API_BASE_URL}/products/${productId}`);
+    // DELETE typically returns 204 No Content, so no data to return or just an empty object for confirmation
+    return {}; 
+  } catch (error) {
+    console.error(`Error deleting product with id ${productId}:`, error);
+    throw error;
+  }
 };
